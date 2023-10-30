@@ -1,9 +1,9 @@
 export const konfigurasiFirebase = {
-  apiKey: "AIzaSyAbLsq27KJU9tD9pHC8GrPUB7LgEPEQbPU",
-  authDomain: "insan-cemerlang-92ee0.firebaseapp.com",
-  projectId: "insan-cemerlang-92ee0",
-  storageBucket: "insan-cemerlang-92ee0.appspot.com",
-  messagingSenderId: "332441427242",
-  appId: "1:332441427242:web:73c31309147ef1dab15253",
-  measurementId: "G-JW04DZL85R"
+  apiKey: "AIzaSyAjxjGgc1_HHBUGoXM1kFq4aXiV--plwZE",
+  authDomain: "pasarcemerlang-11fa3.firebaseapp.com",
+  projectId: "pasarcemerlang-11fa3",
+  storageBucket: "pasarcemerlang-11fa3.appspot.com",
+  messagingSenderId: "390685080124",
+  appId: "1:390685080124:web:6a69ed5fd39c3fc21da139",
+  measurementId: "G-W8CDLLBLLC"
 };

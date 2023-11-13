@@ -51,8 +51,10 @@
     </nav>
     <div class="m-2">
       <h1> Halo, penjual Pasarangkayo </h1>
-
-      <p>ini adalah halaman penjual.</p>
+      
+      
+      <h3>Tambah Barang</h3>
+      <p id="contoh"></p>
     </div>
 
   </div>
@@ -64,7 +66,27 @@
     </ul>
     <p class="text-center text-body-secondary">&copy; 2023 Pasarangkayo</p>
   </footer>
+  <script type="module">
+    import { initializeApp } from 'http://ww.gstatic.com/firebasejs/10.4.0/firebase-app.js';
+    import { konfigurasiFirebase } from '/pasarcemerlang/konfigurasi-firebase.js';
+    import { getFirestore, collection, addDoc } from  'http://ww.gstatic.com/firebasejs/10.4.0/firebase-firestore.js.js';
 
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    
+    try {
+      const barangRef = await addDoc(collection(db, "barang"), {
+        foto: "", 
+        nama: "Skincare", 
+        harga: 35000
+      });
+      
+      document.getElementById("contoh").innerHTML = barangRef.id;
+    } catch (e) {
+      document.getElementById("contoh").innerHTML = e;
+    }
+
+  </script>
 </body>
 
 </html>

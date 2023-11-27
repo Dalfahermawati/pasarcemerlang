@@ -114,7 +114,7 @@ import { getStorage, ref, uploadString } from "https://www.gstatic.com/firebasej
           });
 
       const storage = getstorage (), 
-      const storage = ref(storage, namaBarang,val() + ".jpg");
+      const storageRef = ref(storage, namaBarang,val() + ".jpg");
       
       await uploadBytes (storageRef,fotobarang)
       

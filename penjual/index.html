@@ -86,13 +86,11 @@
     </ul>
     <p class="text-center text-body-secondary">&copy; 2023 Pasar Cemerlang</p>
   </footer>
-
-  <script type="module">
+⇝<script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js';
     import { konfigurasiFirebase } from '/pasarcemerlang/konfigurasi-firebase.js';
     import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
-    
-import { getStorage, ref, uploadString } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
+    import { getStorage, ref, uploadBytes } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
 
     const app = initializeApp(konfigurasiFirebase);
     const db = getFirestore(app);
@@ -104,20 +102,20 @@ import { getStorage, ref, uploadString } from "https://www.gstatic.com/firebasej
       $("#tombol-simpan").click(async function(event) {
         event.preventDefault();
         
-        const fotobarang = $ ("#foto").file[0];
+        const fotoBarang = $("#foto-barang").prop('files')[0];
         
         try {
           const barangRef = await addDoc(collection(db, "barang"), {
-            foto: namaBarang.val()+".jpg", 
+            foto: namaBarang.val() + ".jpg",
             nama: namaBarang.val(),
             harga: hargaBarang.val()
           });
+          
+          const storage = getStorage();
+          const storageRef = ref(storage, namaBarang.val() + ".jpg");
+          
+          await uploadBytes(storageRef, fotoBarang);
 
-      const storage = getstorage (), 
-      const storageRef = ref(storage, namaBarang,val() + ".jpg");
-      
-      await uploadBytes (storageRef,fotobarang)
-      
           $("#pesan").html("Berhasil menambah barang " + namaBarang.val());
         } catch (err) {
           $("#pesan").html("Gagal menambah barang " + namaBarang.val() + err);
@@ -126,5 +124,7 @@ import { getStorage, ref, uploadString } from "https://www.gstatic.com/firebasej
     });
   </script>
 </body>
+
+</html>>
 
 </html>

@@ -96,8 +96,8 @@
       querySnapshot.forEach((doc) => {
         let namaFileFoto = doc.data().foto;
         
-        if (namaFileFoto != '') {
-          getDownloadURL(ref(Storage, namaFileFoto))
+        if (namaFileFoto != "") {
+          getDownloadURL(ref(storage, namaFileFoto))
           .then(url => {
             const foto = document.getElementById(doc.id); 
             foto.setAttribute('src',urlfoto);
